@@ -1,0 +1,25 @@
+{
+  "name" : "moukail/apple-wallet-pass-bundle",
+  "description" : "Implements apple wallet pass bundle",
+  "type" : "symfony-bundle",
+  "authors" : [{
+    "name" : "Ismail",
+    "email" : "ismail@datamatch.nl"
+  }],
+  "license" : [
+    "MIT"
+  ],
+  "require" : {
+    "php": "^7.4|^8.0",
+    "symfony/framework-bundle": "^4.0|^5.0",
+    "mobiledetect/mobiledetectlib": "^2.8"
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "autoload": {
+    "psr-4": {
+      "Moukail\\AppleWalletPassBundle\\": "src/"
+    }
+  }
+}

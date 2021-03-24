@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="Moukail\AppleWalletPassBundle\Controller\DeviceController" alias="moukail.apple_wallet_pass.device_controller" />
+        <service id="moukail.apple_wallet_pass.device_controller" class="Moukail\AppleWalletPassBundle\Controller\DeviceController" public="true" autowire="true">
+            <argument />
+            <argument />
+            <argument />
+        </service>
+
+        <service id="Moukail\AppleWalletPassBundle\Repository\TokenRepository" alias="moukail.apple_wallet_pass.token_repository" />
+        <service id="moukail.apple_wallet_pass.token_repository" class="Moukail\AppleWalletPassBundle\Repository\TokenRepository" autowire="true">
+            <argument type="service" id="doctrine"/>
+            <tag name="doctrine.repository_service"
+                 handles="Moukail\AppleWalletPassBundle\Repository\TokenRepository"/>
+        </service>
+
+        <service id="Moukail\AppleWalletPassBundle\Repository\DeviceRepository" alias="moukail.apple_wallet_pass.device_repository" />
+        <service id="moukail.apple_wallet_pass.device_repository" class="Moukail\AppleWalletPassBundle\Repository\DeviceRepository" autowire="true">
+            <argument type="service" id="doctrine"/>
+            <tag name="doctrine.repository_service"
+                 handles="Moukail\AppleWalletPassBundle\Repository\DeviceRepository"/>
+        </service>
+
+        <service id="moukail.apple_wallet_pass.apple_authenticator" alias="moukail.apple_wallet_pass.security.apple_authenticator" />
+        <service id="moukail.apple_wallet_pass.security.apple_authenticator" class="Moukail\AppleWalletPassBundle\Security\AppleAuthenticator">
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+            <argument type="service" id="monolog.logger"/>
+        </service>
+    </services>
+</container>
