@@ -37,8 +37,7 @@ class AppleAuthenticator extends AbstractGuardAuthenticator
     public function supports(Request $request)
     {
         //return $request->headers->has('X-AUTH-TOKEN');
-        return $request->headers->has('Authorization')
-            && 0 === strpos($request->headers->get('Authorization'), 'ApplePass ');
+        return $request->headers->has('Authorization') && (0 === strpos($request->headers->get('Authorization'), 'ApplePass ') || 0 === strpos($request->headers->get('Authorization'), 'AndroidPass '));
     }
 
     /**
@@ -59,7 +58,7 @@ class AppleAuthenticator extends AbstractGuardAuthenticator
             throw new BadCredentialsException();
         }
 
-        list($token) = sscanf($authorizationHeader, 'ApplePass %s');
+        list($token) = sscanf($authorizationHeader, 'ApplePass %s') ?? sscanf($authorizationHeader, 'AndroidPass %s');
 
         if (!$token) {
             throw new BadCredentialsException();
