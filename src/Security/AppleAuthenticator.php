@@ -48,7 +48,7 @@ class AppleAuthenticator extends AbstractGuardAuthenticator
     {
         $authorizationHeader = $request->headers->get('Authorization');
 
-        $this->logger->error('AppleAuthenticator:getCredentials', [
+        $this->logger->alert('AppleAuthenticator:getCredentials', [
             'data' => $authorizationHeader,
         ]);
         // skip beyond "Bearer "
@@ -58,10 +58,13 @@ class AppleAuthenticator extends AbstractGuardAuthenticator
             throw new BadCredentialsException();
         }
 
-        list($token) = sscanf($authorizationHeader, 'ApplePass %s') ?? sscanf($authorizationHeader, 'AndroidPass %s');
+        list($token) = sscanf($authorizationHeader, 'ApplePass %s');
 
+        if (!$token) {
+            list($token) = sscanf($authorizationHeader, 'AndroidPass %s');
+        }
 
-        $this->logger->error('AppleAuthenticator:getCredentials', [
+        $this->logger->alert('AppleAuthenticator:getCredentials', [
             'token' => $token,
         ]);
 
