@@ -26,6 +26,7 @@ class ApplePassPushNotificationHandler
     public function __invoke(ApplePassPushNotification $message)
     {
         $appleConfig = $this->params->get('apple');
+        $projectRoot = $this->params->get('kernel.project_dir');
 
         $apnsHost = 'gateway.push.apple.com';
         $apnsPort = 2195;
@@ -44,8 +45,8 @@ class ApplePassPushNotificationHandler
          */
         $contextOptions = [
             'ssl' => [
-                'cafile' => __DIR__ . '/../backend/' . $appleConfig['apns_ca_file'],
-                'local_cert' => __DIR__ . '/../backend/' . $appleConfig['apns_cert_file'],
+                'cafile' => $projectRoot . $appleConfig['apns_ca_file'],
+                'local_cert' => $projectRoot . $appleConfig['apns_cert_file'],
                 'passphrase' => $appleConfig['p12_pass'],
                 'disable_compression' => true,
             ],
