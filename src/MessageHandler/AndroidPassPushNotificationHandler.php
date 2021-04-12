@@ -1,20 +1,15 @@
 <?php
 
-namespace App\MessageHandler;
+namespace Moukail\AppleWalletPassBundle\MessageHandler;
 
-use App\Message\AndroidPassPushNotification;
+use Moukail\AppleWalletPassBundle\Message\AndroidPassPushNotification;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class AndroidPassPushNotificationHandler
 {
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
-
-    /** @var ParameterBagInterface */
-    private $params;
+    private LoggerInterface $logger;
+    private ParameterBagInterface $params;
 
     /**
      * AndroidPassPushNotificationHandler constructor.
@@ -30,7 +25,6 @@ class AndroidPassPushNotificationHandler
 
     public function __invoke(AndroidPassPushNotification $message)
     {
-
         $appleConfig = $this->params->get('apple');
         $walletpassesConfig = $this->params->get('walletpasses');
         $client = new \GuzzleHttp\Client();

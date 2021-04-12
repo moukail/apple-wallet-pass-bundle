@@ -20,7 +20,6 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 class AppleAuthenticator extends AbstractGuardAuthenticator
 {
     private EntityManagerInterface $entityManager;
-
     private LoggerInterface $logger;
 
     public function __construct(EntityManagerInterface $entityManager, LoggerInterface $logger)

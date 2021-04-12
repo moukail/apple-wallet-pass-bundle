@@ -3,9 +3,9 @@
 namespace Moukail\AppleWalletPassBundle\Controller;
 
 use Moukail\AppleWalletPassBundle\PassServiceInterface;
+use Moukail\AppleWalletPassBundle\Entity\Device;
 use Moukail\AppleWalletPassBundle\Repository\PassRepositoryInterface;
 use Psr\Log\LoggerInterface;
-use Moukail\AppleWalletPassBundle\Entity\Device;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -13,19 +13,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DeviceController extends AbstractController
 {
-    /**
-     * @var PassRepositoryInterface
-     */
     private PassRepositoryInterface $passRepository;
-
-    /**
-     * @var PassServiceInterface
-     */
     private PassServiceInterface $passService;
-
-    /**
-     * @var LoggerInterface
-     */
     private LoggerInterface $logger;
 
     /**

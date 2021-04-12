@@ -1,20 +1,15 @@
 <?php
 
-namespace App\MessageHandler;
+namespace Moukail\AppleWalletPassBundle\MessageHandler;
 
-use App\Message\ApplePassPushNotification;
+use Moukail\AppleWalletPassBundle\Message\ApplePassPushNotification;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class ApplePassPushNotificationHandler
 {
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
-
-    /** @var ParameterBagInterface */
-    private $params;
+    private LoggerInterface $logger;
+    private ParameterBagInterface $params;
 
     /**
      * ApplePassPushNotificationHandler constructor.

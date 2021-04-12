@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Message;
+namespace Moukail\AppleWalletPassBundle\Message;
 
 class ApplePassPushNotification
 {
-    private $pushToken;
+    private string $pushToken;
 
     public function __construct(string $pushToken)
     {
