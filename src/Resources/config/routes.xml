@@ -3,22 +3,22 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://symfony.com/schema/routing
         http://symfony.com/schema/routing/routing-1.0.xsd">
-    <route id="moukail.apple_wallet_pass.device_registration" controller="moukail.apple_wallet_pass.device_controller:deviceRegistration" path="/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}/{passId}" methods="POST">
+    <route id="moukail.apple_wallet_pass.device_registration" controller="moukail.apple_wallet_pass.device_controller::deviceRegistration" path="/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}/{passId}" methods="POST">
         <!-- settings -->
     </route>
-    <route id="moukail.apple_wallet_pass.device_registration_attido" controller="moukail.apple_wallet_pass.device_controller:deviceRegistrationAttido" path="/devices/{deviceLibraryIdentifier}/registrations_attido/{passTypeIdentifier}/{passId}" methods="POST">
+    <route id="moukail.apple_wallet_pass.device_registration_attido" controller="moukail.apple_wallet_pass.device_controller::deviceRegistrationAttido" path="/devices/{deviceLibraryIdentifier}/registrations_attido/{passTypeIdentifier}/{passId}" methods="POST">
         <!-- settings -->
     </route>
-    <route id="moukail.apple_wallet_pass.device_unregistration" controller="moukail.apple_wallet_pass.device_controller:deviceUnregistration" path="/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}/{passId}" methods="DELETE">
+    <route id="moukail.apple_wallet_pass.device_unregistration" controller="moukail.apple_wallet_pass.device_controller::deviceUnregistration" path="/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}/{passId}" methods="DELETE">
         <!-- settings -->
     </route>
-    <route id="moukail.apple_wallet_pass.device_serial_numbers" controller="moukail.apple_wallet_pass.device_controller:deviceSerialNumbers" path="/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}" methods="GET">
+    <route id="moukail.apple_wallet_pass.device_serial_numbers" controller="moukail.apple_wallet_pass.device_controller::deviceSerialNumbers" path="/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}" methods="GET">
         <!-- settings -->
     </route>
-    <route id="moukail.apple_wallet_pass.last_version_pass" controller="moukail.apple_wallet_pass.device_controller:lastVersionPass" path="/passes/{passTypeIdentifier}/{passId}" methods="GET">
+    <route id="moukail.apple_wallet_pass.last_version_pass" controller="moukail.apple_wallet_pass.device_controller::lastVersionPass" path="/passes/{passTypeIdentifier}/{passId}" methods="GET">
         <!-- settings -->
     </route>
-    <route id="moukail.apple_wallet_pass.log" controller="moukail.apple_wallet_pass.controller.device_controller:log" path="/log" methods="POST">
+    <route id="moukail.apple_wallet_pass.log" controller="moukail.apple_wallet_pass.controller.device_controller::log" path="/log" methods="POST">
         <!-- settings -->
     </route>
 </routes>
