@@ -58,8 +58,6 @@ class DeviceController extends AbstractController
             'data' => $data,
         ]);
 
-        $entityManager = $this->getDoctrine()->getManager();
-
         $detect = new \Mobile_Detect();
         $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
 
@@ -81,6 +79,7 @@ class DeviceController extends AbstractController
             ->setDeviceLibraryIdentifier($deviceLibraryIdentifier)
             ->setPushToken($data['pushToken']);
 
+        $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($device);
         $entityManager->flush();
 
